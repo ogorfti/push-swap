@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:16:57 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/11 23:16:50 by ogorfti          ###   ########.fr       */
+/*   Updated: 2022/12/16 20:22:14 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void ft_sa(f_list **stackA)
 		write(1, "sa\n", 3);
 	}
 	else
-		return ;
+		return;
 }
 
 void ft_sb(f_list **stackB)
@@ -69,7 +69,7 @@ void ft_sb(f_list **stackB)
 		write(1, "sb\n", 3);
 	}
 	else
-		return ;
+		return;
 }
 
 void ft_ss(f_list **stackA, f_list **stackB)
@@ -206,7 +206,7 @@ void ft_rrr(f_list **stackA, f_list **stackb)
 int main(int ac, char **av)
 {
 	f_list *stackB;
-	f_list *test;
+	//f_list *test;
 	static int counter;
 	int i;
 
@@ -231,19 +231,33 @@ int main(int ac, char **av)
 		}
 		i++;
 	}
-	if ((ac - 1) == 3)
+	if ((ac - 1) == 2)
+	{
+		if (stackA->content > stackA->next->content)
+			ft_sa(&stackA);
+	}
+	else if ((ac - 1) == 3)
 	{
 		ft_algo3(&stackA);
 	}
-	else if((ac - 1) == 5)
+	else if ((ac - 1) == 5)
 	{
 		ft_algo5(&stackA, &stackB);
 	}
-	else if((ac - 1) == 4)
+	else if ((ac - 1) == 4)
 	{
 		ft_algo4(&stackA, &stackB);
 	}
-	
+	else if ((ac - 1) > 5)
+	{
+		// printf("max = %.2f\n", ft_find_max(&stackA));
+		// printf("min = %.2f\n", ft_find_min(&stackA));
+		// printf("midvalue = %.2f\n", find_mid(&stackA));
+		//test = find_mid(&stackA);
+		//printf("midlist = %d\n", test->content);
+		trasfer_2B(&stackA, &stackB);
+	}
+
 	// test = malloc(sizeof(f_list));
 	// test->content = 9;
 	// test->next = 0;
@@ -256,7 +270,7 @@ int main(int ac, char **av)
 	// ft_pb(&stackA, &stackB);
 	// ft_rr(&stackA, &stackB);
 	// ft_rrr(&stackA, &stackB);
-	// ft_sa(&stackA);
+	// ft_rra(&stackA);
 	// ft_pa(&stackA, &stackB);
 	// ft_pa(&stackA, &stackB);
 	// ft_pa(&stackA, &stackB);

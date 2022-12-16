@@ -6,13 +6,13 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:25:40 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/11 23:17:17 by ogorfti          ###   ########.fr       */
+/*   Updated: 2022/12/16 15:09:01 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_find_min(f_list **stackA)
+void ft_find_min_replace(f_list **stackA)
 {
 	f_list *saver;
 	f_list *checker;
@@ -38,9 +38,9 @@ void ft_find_min(f_list **stackA)
 
 void ft_algo5(f_list **stackA, f_list **stackB)
 {
-	ft_find_min(&(*stackA));
+	ft_find_min_replace(&(*stackA));
 	ft_pb(&(*stackA), &(*stackB));
-	ft_find_min(&(*stackA));
+	ft_find_min_replace(&(*stackA));
 	ft_pb(&(*stackA), &(*stackB));
 	ft_algo3(&(*stackA));
 	ft_pa(&(*stackA), &(*stackB));

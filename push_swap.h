@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/11 23:16:17 by ogorfti          ###   ########.fr       */
+/*   Updated: 2022/12/16 16:06:15 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,15 @@ void ft_rra(f_list **stackA);
 void ft_rrb(f_list **stackB);
 void ft_rrr(f_list **stackA, f_list **stackb);
 void ft_algo3(f_list **stackA);
-void ft_find_min(f_list **stackA);
+void ft_find_min_replace(f_list **stackA);
 void ft_algo5(f_list **stackA, f_list **stackB);
 void ft_algo4(f_list **stackA, f_list **stackB);
+float ft_count_list(f_list **stackA);
+f_list	*find_mid_value(f_list **stackA);
+void	trasfer_2B(f_list **stackA, f_list **stackB);
+float	ft_find_max(f_list **stack);
+float	ft_find_min(f_list **stack);
+f_list *find_mid(f_list **stackx);
+
 
 #endif
