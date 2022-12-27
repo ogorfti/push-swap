@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 18:00:21 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/26 21:34:58 by ogorfti          ###   ########.fr       */
+/*   Updated: 2022/12/27 22:38:54 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -405,16 +405,32 @@ int count_rest(f_list **stack, int chunk)
 	}
 	return (count);
 }
-
-int push_2a(f_list **stackA, f_list **stackB, int chunkB)
+int count_rest2(f_list **stack, int chunk)
 {
-	f_list *minilst;
-	int mid;
-	int checker;
+	f_list *loop;
 	int count;
 
 	count = 0;
-	checker = 0;
+	loop = *stack;
+	while (loop)
+	{
+		count++;
+		if (loop->content == chunk)
+			break;
+		loop = loop->next;
+	}
+	return (count);
+}
+
+void push_2a(f_list **stackA, f_list **stackB, int chunkB)
+{
+	f_list *minilst;
+	int mid;
+	//int checker;
+	int count;
+
+	count = 0;
+	//checker = 0;
 	minilst = put_in_lst(&(*stackB), chunkB);
 	mid = sortlst(&minilst);
 	while (*stackB)
@@ -424,7 +440,7 @@ int push_2a(f_list **stackA, f_list **stackB, int chunkB)
 		if ((*stackB)->content > mid)
 		{
 			ft_pa(&(*stackA), &(*stackB));
-			checker++;
+			//checker++;
 		}
 		else
 		{
@@ -437,56 +453,113 @@ int push_2a(f_list **stackA, f_list **stackB, int chunkB)
 		ft_rrb(&(*stackB));
 		count--;
 	}
-	return (checker);
+	//return (checker);
 }
 
-// void push_2b();
+void push_2b(f_list **stackA, f_list **stackB, int chunkA)
+{
+	f_list *minilstA;
+	int mid;
+	int count;
+
+	count = 0;
+	minilstA = put_in_lst(&(*stackA), chunkA);
+	mid = sortlst(&minilstA);
+	printf("mid of miniA : %d\n", mid);
+	while (*stackA)
+	{
+		if ((*stackA)->content == chunkA)
+			break;
+		if ((*stackA)->content < mid)
+		{
+			printf("pa to pb : %d\n", (*stackA)->content);
+			ft_pb(&(*stackA), &(*stackB));
+		}
+		else
+		{
+			ft_ra(&(*stackA));
+			count++;
+		}
+	}
+	while (count > 0)
+	{
+		ft_rra(&(*stackA));
+		count--;
+	}
+}
+
+void last_ponging(f_list **stackA, f_list **stackB, int chunkA)
+{
+	int counter;
+
+	counter = count_rest2(&(*stackA), chunkA);
+	while (counter > 2)
+	{
+		counter = count_rest2(&(*stackA), chunkA);
+		if (counter > 2)
+			push_2b(&(*stackA), &(*stackB), chunkA);
+	}
+}
+
+void sortlst_to_stackA(f_list **stackA, f_list **stackB, int checker)
+{
+	if (checker == 2)
+	{
+		if ((*stackB)->content < (*stackB)->next->content)
+		{
+			ft_sb(&(*stackB));
+			ft_pa(&(*stackA), &(*stackB));
+			ft_pa(&(*stackA), &(*stackB));
+		}
+		else
+		{
+			ft_pa(&(*stackA), &(*stackB));
+			ft_pa(&(*stackA), &(*stackB));
+		}
+	}
+	else if (checker == 1)
+	{
+		ft_pa(&(*stackA), &(*stackB));
+		if ((*stackA)->content > (*stackA)->next->content)
+			ft_sa(&(*stackA));
+	}
+}
 
 void ping_ponging(f_list **stackA, f_list **stackB)
 {
 	f_list *chunkB;
+	int chunkA;
 	int checker;
 	int *arr;
-	int i = 0;
+	int i;
 
+	i = 0;
 	chunkB = trasfer_4B(&(*stackA), &(*stackB));
 	arr = get_final_arr(&chunkB, &(*stackB));
 	checker = count_rest(&(*stackB), arr[0]);
-	printf("checker : %d\n", checker);
+	chunkA = (*stackA)->content;
 
 	while (*stackB)
 	{
 		checker = count_rest(&(*stackB), arr[i]);
+		printf("count rest : %d\n", count_rest2(&(*stackA), chunkA));
 		if (checker == 0)
 			i++;
 		else if (checker > 2)
 		{
 			push_2a(&(*stackA), &(*stackB), arr[i]);
-			//lot of work ! :)
-			//1.find chunkA
-			//2.put it in lst
-			//3.find mid of that lst
-			//4.and push everything higher to mid to stackB
-			//5. untill still less than 3
+		}
+		else if (count_rest(&(*stackA), chunkA) > 2)
+		{
+			last_ponging(&(*stackA), &(*stackB), chunkA);
+			//push_2a(&(*stackA), &(*stackB), arr[i]);
+			break;
 		}
 		else
 		{
-			if (checker == 2)
-			{
-				if ((*stackB)->content < (*stackB)->next->content)
-				{
-					ft_sb(&(*stackB));
-					ft_pa(&(*stackA), &(*stackB));
-					ft_pa(&(*stackA), &(*stackB));
-				}
-				else
-				{
-					ft_pa(&(*stackA), &(*stackB));
-					ft_pa(&(*stackA), &(*stackB));
-				}
-			}
-			else
-				ft_pa(&(*stackA), &(*stackB));
+			sortlst_to_stackA(&(*stackA), &(*stackB), checker);
+			chunkA = (*stackA)->content;
 		}
+		printf("chunA : %d\n", chunkA);
 	}
 }

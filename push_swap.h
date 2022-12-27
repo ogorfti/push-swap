@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/26 12:48:53 by ogorfti          ###   ########.fr       */
+/*   Updated: 2022/12/27 18:35:41 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ void	ft_swap(int *a, int *b);
 int		sortlst(f_list **stackx);
 void	*trasfer_4B(f_list **stackA, f_list **stackB);
 void	ping_ponging(f_list **stackA, f_list **stackB);
+void	push_2b(f_list **stackA, f_list **stackB, int chunkA);
+void final_ping_ponging(f_list **stackA, f_list **stackB);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:16:57 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/26 19:02:57 by ogorfti          ###   ########.fr       */
+/*   Updated: 2022/12/27 20:52:26 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int main(int ac, char **av)
 	else if ((ac - 1) > 2)
 	{
 		ping_ponging(&stackA, &stackB);
-		//trasfer_4B(&stackA, &stackB);
+		// trasfer_3B(&stackA, &stackB);
+		// push_2b(&stackA, &stackB, 33);
 	}
 	while (stackA)
 	{
