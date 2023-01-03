@@ -6,14 +6,18 @@
 #    By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:17:09 by ogorfti           #+#    #+#              #
-#    Updated: 2022/12/29 14:18:36 by ogorfti          ###   ########.fr        #
+#    Updated: 2023/01/02 22:30:01 by ogorfti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =	push_swap.c\
-		opt.c\
-		algo3.c\
-		sort.c\
+		ft_opt.c\
+		ft_utils.c\
+		ft_sort3.c\
+		ft_sort5.c\
+		ft_smallx.c\
+		ft_checker.c\
+		ft_bigx.c\
 
 OBJS =  $(SRCS:.c=.o)
 

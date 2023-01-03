@@ -5,164 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 18:00:21 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/29 14:19:39 by ogorfti          ###   ########.fr       */
+/*   Created: 2022/12/29 15:39:57 by ogorfti           #+#    #+#             */
+/*   Updated: 2023/01/01 18:10:15 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// f_list *find_mid_value(f_list **stackA)
-// {
-// 	double index;
-// 	f_list *midlist;
-// 	midlist = *stackA;
-// 	//printf("tracker = %.2f\n", ft_count_list(&(*stackA)));
-// 	index = (ft_count_list(&(*stackA)) / 2);
-// 	//printf("index = %.2f\n", index);
-// 	while (index > 0)
-// 	{
-// 		midlist = midlist->next;
-// 		index--;
-// 	}
-// 	printf("midlist = %d\n", midlist->content);
-// 	return (midlist);
-// }
-
-// float ft_find_max(f_list **stack)
-// {
-// 	f_list *saver;
-// 	int max;
-// 	max = (*stack)->content;
-// 	saver = *stack;
-// 	while (*stack)
-// 	{
-// 		if (max <= (*stack)->content)
-// 		{
-// 			max = (*stack)->content;
-// 			*stack = (*stack)->next;
-// 		}
-// 		else
-// 			*stack = (*stack)->next;
-// 	}
-// 	*stack = saver;
-// 	printf("max = %d\n", max);
-// 	return (max);
-// }
-
-// float ft_find_min(f_list **stack)
-// {
-// 	f_list *saver;
-// 	int min;
-// 	min = (*stack)->content;
-// 	saver = *stack;
-// 	while (*stack)
-// 	{
-// 		if (min >= (*stack)->content)
-// 		{
-// 			min = (*stack)->content;
-// 			*stack = (*stack)->next;
-// 		}
-// 		else
-// 			*stack = (*stack)->next;
-// 	}
-// 	*stack = saver;
-// 	printf("min = %d\n", min);
-// 	return (min);
-// }
-
-// int ft_check_lst(f_list **stackx, float value)
-// {
-// 	f_list *saver;
-// 	saver = *stackx;
-// 	while (saver)
-// 	{
-// 		if (saver->content == value)
-// 			return (1);
-// 		saver = saver->next;
-// 	}
-// 	return (0);
-// }
-
-// f_list *ft_first_check(f_list **stackx, float value)
-// {
-// 	f_list *mid_list;
-// 	f_list *saver;
-// 	saver = *stackx;
-// 	while (saver)
-// 	{
-// 		if (saver->content == value)
-// 			mid_list = saver;
-// 		saver = saver->next;
-// 	}
-// 	printf("mid_list = %d\n", mid_list->content);
-// 	return (mid_list);
-// }
-
-// f_list *ft_last_check(f_list **stackx, float value)
-// {
-// 	f_list *mid_list = NULL;
-// 	f_list *saver;
-// 	saver = *stackx;
-// 	while (saver)
-// 	{
-// 		if (saver->content > value)
-// 		{
-// 			mid_list = saver;
-// 			break;
-// 		}
-// 		saver = saver->next;
-// 	}
-// 	//printf("first one : %d\n", mid_list->content);
-// 	saver = *stackx;
-// 	while (saver)
-// 	{
-// 		if (saver->content > value)
-// 		{
-// 			if (saver->content <= mid_list->content)
-// 			{
-// 				mid_list = saver;
-// 				//printf("miflist : %d\n", mid_list->content);
-// 			}
-// 			saver = saver->next;
-// 		}
-// 		else
-// 			saver = saver->next;
-// 	}
-// 	return (mid_list);
-// }
-
-// f_list *find_mid(f_list **stackx)
-// {
-// 	float firstvalue;
-// 	f_list *mid_list;
-// 	firstvalue = (ft_find_max(&(*stackx)) + ft_find_min(&(*stackx))) / 2;
-// 	if (ft_check_lst(&(*stackx), firstvalue) == 1)
-// 		mid_list = ft_first_check(&(*stackx), firstvalue);
-// 	else
-// 	{
-// 		mid_list = ft_last_check(&(*stackx), firstvalue);
-// 	}
-// 	return (mid_list);
-// }
-
-/*******new algo********/
-int ft_count_list(f_list **stackA)
+int ft_count_list(f_list **sx)
 {
 	f_list *saver;
-	int tracker;
+	int counter;
 
-	tracker = 0;
-	saver = *stackA;
+	counter = 0;
+	saver = *sx;
 	while (saver)
 	{
-		tracker++;
+		counter++;
 		saver = saver->next;
 	}
-	return (tracker);
+	return (counter);
 }
 
-int *put_in_arr(f_list **stackx)
+int *put_in_arr(f_list **sx)
 {
 	f_list *saver;
 	int *arr;
@@ -170,8 +35,8 @@ int *put_in_arr(f_list **stackx)
 	int i;
 
 	i = 0;
-	len = ft_count_list(&(*stackx));
-	saver = *stackx;
+	len = ft_count_list(&(*sx));
+	saver = *sx;
 	arr = malloc(len * sizeof(int));
 	while (saver)
 	{
@@ -182,18 +47,16 @@ int *put_in_arr(f_list **stackx)
 	return (arr);
 }
 
-int sortlst(f_list **stackx)
+int *temp_sort(f_list **sa)
 {
 	int *arr;
 	int len;
-	int mid_value;
 	int i;
 	int j;
 
-	arr = put_in_arr(&(*stackx));
-	len = ft_count_list(&(*stackx));
+	arr = put_in_arr(&(*sa));
+	len = ft_count_list(&(*sa));
 	i = 0;
-	j = 0;
 	while (i < len)
 	{
 		j = i + 1;
@@ -205,369 +68,296 @@ int sortlst(f_list **stackx)
 		}
 		i++;
 	}
-	mid_value = arr[len / 2];
-	return (mid_value);
+	return (arr);
 }
 
-void trasfer_2B(f_list **stackA, f_list **stackB)
+int *get_ntransfer(f_list **sa)
 {
-	int mid_value;
-	f_list *loop;
+	int *ntrans;
+	int *sorted;
+	int divider;
+	int i;
+	int j;
 
-	mid_value = sortlst(*(&stackA));
-	loop = *stackA;
-	while (loop)
+	j = 0;
+	sorted = temp_sort(&(*sa));
+	ntrans = malloc(sizeof(int) * 3);
+	divider = ft_count_list(&(*sa)) / 3;
+	//printf("divider : %d\n", divider);
+	i = divider - 1;
+	while (j < 2) /**/
 	{
-		if (loop->content < mid_value)
-		{
-			ft_pb(&(*stackA), &(*stackB));
-		}
-		else
-		{
-			break;
-		}
-		loop = loop->next;
+		ntrans[j] = sorted[i];
+		i = i + divider;
+		j++;
 	}
-	while (loop)
-	{
-		ft_rra(&loop);
-		if (loop->content < mid_value)
-			ft_pb(&loop, &(*stackB));
-		else
-		{
-			ft_ra(&loop);
-			break;
-		}
-	}
-	*stackA = loop;
+	return (ntrans);
 }
 
-int check_down(f_list **stackx, int mid)
-{
-	f_list *loop;
-	int count;
-
-	count = 0;
-	loop = *stackx;
-	while (loop)
-	{
-		if (loop->content < mid)
-			count++;
-		loop = loop->next;
-	}
-	return (count);
-}
-
-void trasfer_3B(f_list **stackA, f_list **stackB)
+int rest_checker(f_list **sa, int chunkA)
 {
 	f_list *saver;
-	int mid_value;
+	int checker;
 
-	mid_value = sortlst(*(&stackA));
-	printf("mid_value = %d\n", mid_value);
-	trasfer_2B(&(*stackA), &(*stackB));
-	saver = *stackA;
-	while (check_down(&saver, mid_value) != 0)
-	{
-		if (saver->content >= mid_value)
-			ft_ra(&saver);
-		else
-		{
-			if (saver->content < mid_value)
-				ft_pb(&saver, &(*stackB));
-		}
-	}
-	*stackA = saver;
-}
-
-void *trasfer_4B(f_list **stackA, f_list **stackB)
-{
-	f_list *chunksaverB;
-	f_list *new;
-	f_list *temp;
-
-	chunksaverB = 0;
-	while (ft_count_list(&(*stackA)) > 3)
-	{
-		trasfer_3B(&(*stackA), &(*stackB));
-		temp = malloc(sizeof(f_list));
-		temp->content = (*stackB)->content;
-		temp->next = 0;
-		if (chunksaverB == 0)
-		{
-			chunksaverB = temp;
-			new = temp;
-		}
-		else
-		{
-			new->next = temp;
-			new = temp;
-		}
-	}
-	if (ft_count_list(&(*stackA)) == 3)
-		algo3(&(*stackA));
-	else
-	{
-		if (ft_count_list(&(*stackA)) == 2)
-		{
-			if ((*stackA)->content > (*stackA)->next->content)
-				ft_sa(&(*stackA));
-		}
-	}
-	return (chunksaverB);
-}
-
-f_list *put_in_lst(f_list **stack, int chunksaver)
-{
-	f_list *saver;
-	f_list *new;
-	f_list *minilst;
-	f_list *temp;
-
-	saver = *stack;
-	minilst = 0;
-	new = 0;
+	checker = 0;
+	saver = *sa;
 	while (saver)
 	{
-		if (saver->content == chunksaver)
-			break;
-
-		temp = malloc(sizeof(f_list));
-		temp->content = saver->content;
-		temp->next = 0;
-		if (minilst == 0)
-		{
-			minilst = temp;
-			new = temp;
-		}
-		else
-		{
-			new->next = temp;
-			new = temp; //to increment address of new for next node.
-		}
+		if (saver->content <= chunkA)
+			checker++;
 		saver = saver->next;
 	}
-	return (minilst);
+	return (checker);
 }
 
-int *reverse_chunkB(f_list **chunkB)
+void transfer_2B(f_list **sa, f_list **sb)
 {
-	int *arr;
-	int len;
-
-	len = ft_count_list(&(*chunkB)) - 1;
-	arr = malloc(sizeof(int) * len);
-	while (len >= 0)
-	{
-		arr[len] = (*chunkB)->content;
-		len--;
-		*chunkB = (*chunkB)->next;
-	}
-	return (arr);
-}
-
-int *get_final_arr(f_list **chunk, f_list **stackB)
-{
-	f_list *saver;
-	int *arr;
-	int len;
-
-	len = ft_count_list(&(*chunk)); //deja is plus 1
-	saver = *stackB;
-	while (saver->next != 0)
-		saver = saver->next;
-	arr = malloc(sizeof(int) * len);
-	arr[len] = saver->content;
-	len--;
-	while (len >= 0)
-	{
-		arr[len] = (*chunk)->content;
-		len--;
-		*chunk = (*chunk)->next;
-	}
-	return (arr);
-}
-
-int count_rest(f_list **stack, int chunk)
-{
-	f_list *loop;
-	int count;
-
-	count = 0;
-	loop = *stack;
-	while (loop)
-	{
-		if (loop->content == chunk)
-			break;
-		else
-			count++;
-		loop = loop->next;
-	}
-	return (count);
-}
-int count_rest2(f_list **stack, int chunk)
-{
-	f_list *loop;
-	int count;
-
-	count = 0;
-	loop = *stack;
-	while (loop)
-	{
-		count++;
-		if (loop->content == chunk)
-			break;
-		loop = loop->next;
-	}
-	return (count);
-}
-
-int push_2a(f_list **stackA, f_list **stackB, int chunkB)
-{
-	f_list *minilst;
-	int mid;
-	int nmove;
-	int count;
-
-	count = 0;
-	nmove = 0;
-	minilst = put_in_lst(&(*stackB), chunkB);
-	mid = sortlst(&minilst);
-	while (*stackB)
-	{
-		if ((*stackB)->content == chunkB)
-			break;
-		if ((*stackB)->content > mid)
-		{
-			ft_pa(&(*stackA), &(*stackB));
-			nmove++;
-		}
-		else
-		{
-			ft_rb(&(*stackB));
-			count++;
-		}
-	}
-	while (count > 0)
-	{
-		ft_rrb(&(*stackB));
-		count--;
-	}
-	return (nmove);
-}
-
-void push_2b(f_list **stackA, f_list **stackB, int chunkA)
-{
-	f_list *minilstA;
-	int mid;
-	int count;
-
-	count = 0;
-	minilstA = put_in_lst(&(*stackA), chunkA);
-	mid = sortlst(&minilstA);
-	printf("mid of miniA : %d\n", mid);
-	while (*stackA)
-	{
-		if ((*stackA)->content == chunkA)
-			break;
-		if ((*stackA)->content < mid)
-		{
-			printf("pa to pb : %d\n", (*stackA)->content);
-			ft_pb(&(*stackA), &(*stackB));
-		}
-		else
-		{
-			ft_ra(&(*stackA));
-			count++;
-		}
-	}
-	while (count > 0)
-	{
-		ft_rra(&(*stackA));
-		count--;
-	}
-}
-
-void last_ponging(f_list **stackA, f_list **stackB, int chunkA)
-{
-	int counter;
-
-	counter = count_rest2(&(*stackA), chunkA);
-	while (counter > 2)
-	{
-		counter = count_rest2(&(*stackA), chunkA);
-		if (counter > 2)
-			push_2b(&(*stackA), &(*stackB), chunkA);
-	}
-}
-
-void sortlst_to_stackA(f_list **stackA, f_list **stackB, int checker)
-{
-	if (checker == 2)
-	{
-		if ((*stackB)->content < (*stackB)->next->content)
-		{
-			ft_sb(&(*stackB));
-			ft_pa(&(*stackA), &(*stackB));
-			ft_pa(&(*stackA), &(*stackB));
-		}
-		else
-		{
-			ft_pa(&(*stackA), &(*stackB));
-			ft_pa(&(*stackA), &(*stackB));
-		}
-	}
-	else if (checker == 1)
-	{
-		ft_pa(&(*stackA), &(*stackB));
-		if ((*stackA)->content > (*stackA)->next->content)
-			ft_sa(&(*stackA));
-	}
-}
-
-void ping_ponging(f_list **stackA, f_list **stackB)
-{
-	f_list *chunkB;
-	int chunkA;
-	int checker;
-	int nmove = 0;
-	//int tester;
-	int *arr;
+	int *ntrans;
+	int rest;
 	int i;
 
-	i = 1;
-	chunkB = trasfer_4B(&(*stackA), &(*stackB));
-	arr = get_final_arr(&chunkB, &(*stackB));
-	checker = count_rest(&(*stackB), arr[i]);
-	chunkA = (*stackA)->content;
-
-	while (*stackB)
+	i = 0;
+	ntrans = get_ntransfer(&(*sa));
+	while (i < 2) /***/
 	{
-		checker = count_rest(&(*stackB), arr[i]);
-		if (checker == 0)
+		rest = rest_checker(&(*sa), ntrans[i]);
+		if (rest == 0)
 			i++;
-		else if (checker > 2)
+		if ((*sa)->content > ntrans[i])
+			ft_ra(&(*sa));
+		else
+			ft_pb(&(*sa), &(*sb));
+	}
+}
+
+int find_min(f_list **sa)
+{
+	f_list *saver;
+	int min;
+
+	saver = *sa;
+	min = saver->content;
+	while (saver)
+	{
+		if (min >= saver->content)
 		{
-			nmove = push_2a(&(*stackA), &(*stackB), arr[i]);
-			printf("nmove : %d\n", nmove);
+			min = saver->content;
+			saver = saver->next;
 		}
 		else
-		{
-			sortlst_to_stackA(&(*stackA), &(*stackB), checker);
-			//chunkA = (*stackA)->content;
-		}
-		while (nmove > 2)
-		{
-			push_2b (&(*stackA), &(*stackB), chunkA);
-			//last_ponging(&(*stackA), &(*stackB), chunkA);
-			if((*stackA)->content > (*stackA)->next->content)
-				ft_sa(&(*stackA));
-			nmove = count_rest(&(*stackA), chunkA);
-				
+			saver = saver->next;
+	}
+	return (min);
+}
 
-			//nmove = push_2a(&(*stackA), &(*stackB), arr[i]);
+int find_second_min(f_list **sx)
+{
+	f_list *saver;
+	int firstmin;
+	int secondmin;
+
+	firstmin = find_min(&(*sx));
+	secondmin = (*sx)->content;
+	saver = *sx;
+	while (saver)
+	{
+		if (secondmin >= saver->content)
+		{
+			if (saver->content != firstmin)
+				secondmin = saver->content;
 		}
-		chunkA = (*stackA)->content;
-		//printf ("chunkA : %d\n", ch)
+		saver = saver->next;
+	}
+	return (secondmin);
+}
+
+int get_index(f_list **sa, int min)
+{
+	f_list *saver;
+	int index;
+
+	index = 0;
+	saver = *sa;
+	while (saver)
+	{
+		if (saver->content == min)
+			break;
+		else
+		{
+			saver = saver->next;
+			index++;
+		}
+	}
+	return (index);
+}
+
+void transfer_3B(f_list **sa, f_list **sb)
+{
+	int count;
+	int index;
+	int min;
+	int smin;
+
+	transfer_2B(&(*sa), &(*sb));
+	count = ft_count_list(&(*sa));
+	while (*sa)
+	{
+		min = find_min(&(*sa));
+		smin = find_second_min(&(*sa));
+		index = get_index(&(*sa), min);
+		if (index < ft_count_list(&(*sa)) / 2)
+		{
+			while (*sa)
+			{
+				if ((*sa)->content != min && (*sa)->content != smin)
+					ft_ra(&(*sa));
+				else if ((*sa)->content == smin && min != smin)
+					ft_pb(&(*sa), &(*sb));
+				else
+				{
+					ft_pb(&(*sa), &(*sb));
+					break;
+				}
+			}
+		}
+		else if (index >= ft_count_list(&(*sa)) / 2)
+		{
+			while (*sa)
+			{
+				if ((*sa)->content != min && (*sa)->content != smin)
+					ft_rra(&(*sa));
+				else if ((*sa)->content == smin && min != smin)
+					ft_pb(&(*sa), &(*sb));
+				else
+				{
+					ft_pb(&(*sa), &(*sb));
+					break;
+				}
+			}
+		}
+	}
+	while (count > 0)
+	{
+		ft_pa(&(*sa), &(*sb));
+		count--;
+		if ((*sa)->next != 0)
+		{
+			if ((*sa)->content > (*sa)->next->content)
+				ft_sa(&(*sa));
+		}
+	}
+}
+
+int find_max(f_list **sb)
+{
+	f_list *saver;
+	int max;
+
+	saver = *sb;
+	max = saver->content;
+	while (saver)
+	{
+		if (max <= saver->content)
+		{
+			max = saver->content;
+			saver = saver->next;
+		}
+		else
+			saver = saver->next;
+	}
+	return (max);
+}
+
+int find_second_max(f_list **sx)
+{
+	f_list *saver;
+	int firstmax;
+	int secondmax;
+
+	firstmax = find_max(&(*sx));
+	secondmax = (*sx)->content;
+	saver = *sx;
+	while (saver)
+	{
+		if (secondmax <= saver->content)
+		{
+			if (saver->content != firstmax)
+				secondmax = saver->content;
+		}
+		saver = saver->next;
+	}
+	//printf("second max : %d\n", secondmax);
+	return (secondmax);
+}
+
+int get_max_index(f_list **sb, int max)
+{
+	f_list *saver;
+	int index;
+
+	index = 0;
+	saver = *sb;
+	while (saver)
+	{
+		if (saver->content == max)
+			break;
+		else
+		{
+			saver = saver->next;
+			index++;
+		}
+	}
+	return (index);
+}
+
+void transfer_4B(f_list **sa, f_list **sb)
+{
+	int count;
+	int index;
+	int max;
+	int smax;
+
+	transfer_3B(&(*sa), &(*sb));
+	count = ft_count_list(&(*sb));
+
+	while (*sb)
+	{
+		max = find_max(&(*sb));
+		index = get_max_index(&(*sb), max);
+		smax = find_second_max(&(*sb));
+		if (index < ft_count_list(&(*sa)) / 2)
+		{
+			while (1)
+			{
+				if ((*sb)->content != max && (*sb)->content != smax)
+					ft_rb(&(*sb));
+				else if ((*sb)->content == smax && smax != max)
+					ft_pa(&(*sa), &(*sb));
+				else
+				{
+					ft_pa(&(*sa), &(*sb));
+					break;
+				}
+			}
+			if ((*sa)->content > (*sa)->next->content)
+				ft_sa(&(*sa));
+		}
+		else if (index >= ft_count_list(&(*sa)) / 2)
+		{
+			while (1)
+			{
+				if ((*sb)->content != max && (*sb)->content != smax)
+					ft_rrb(&(*sb));
+				else if ((*sb)->content == smax && smax != max)
+					ft_pa(&(*sa), &(*sb));
+				else
+				{
+					ft_pa(&(*sa), &(*sb));
+					break;
+				}
+			}
+			if ((*sa)->content > (*sa)->next->content)
+				ft_sa(&(*sa));
+		}
 	}
 }

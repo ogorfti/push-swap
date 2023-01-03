@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo3.c                                            :+:      :+:    :+:   */
+/*   ft_sort3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:30:56 by ogorfti           #+#    #+#             */
-/*   Updated: 2022/12/29 14:20:58 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/01 14:05:28 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void algo3(f_list **stackA)
+void	ft_sort3(f_list **stackA)
 {
-	int n1;
-	int n2;
-	int n3;
+	int	n1;
+	int	n2;
+	int	n3;
 
 	n1 = (*stackA)->content;
 	n2 = (*stackA)->next->content;
 	n3 = (*stackA)->next->next->content;
 	if (n1 > n2 && n1 < n3 && n2 < n3)
 	{
-		ft_sa(&(*stackA));
+		ft_sa(stackA);
 	}
 	else if (n1 > n2 && n1 > n3 && n2 > n3)
 	{
-		ft_sa(&(*stackA));
-		ft_rra(&(*stackA));
+		ft_sa(stackA);
+		ft_rra(stackA);
 	}
 	else if (n1 > n2 && n1 > n3 && n2 < n3)
-		ft_ra(&(*stackA));
+		ft_ra(stackA);
 	else if (n1 < n2 && n1 < n3 && n2 > n3)
 	{
-		ft_sa(&(*stackA));
-		ft_ra(&(*stackA));
+		ft_sa(stackA);
+		ft_ra(stackA);
 	}
 	else if (n1 < n2 && n1 > n3 && n2 > n3)
-		ft_rra(&(*stackA));
+		ft_rra(stackA);
 }
