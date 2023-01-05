@@ -6,16 +6,25 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:32:20 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/02 22:14:10 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/05 00:52:39 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int count_list(f_list **sx)
+void	ft_swap(int *a, int *b)
 {
-	f_list *saver;
-	int counter;
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+int	count_list(f_list **sx)
+{
+	f_list	*saver;
+	int		counter;
 
 	counter = 0;
 	saver = *sx;
@@ -27,10 +36,10 @@ int count_list(f_list **sx)
 	return (counter);
 }
 
-int find_min(f_list **sx)
+int	find_min(f_list **sx)
 {
-	f_list *saver;
-	int min;
+	f_list	*saver;
+	int		min;
 
 	saver = *sx;
 	min = saver->content;
@@ -47,17 +56,17 @@ int find_min(f_list **sx)
 	return (min);
 }
 
-int get_index(f_list **sx, int data)
+int	get_index(f_list **sx, int data)
 {
-	f_list *saver;
-	int index;
+	f_list	*saver;
+	int		index;
 
 	index = 0;
 	saver = *sx;
 	while (saver)
 	{
 		if (saver->content == data)
-			break;
+			break ;
 		else
 		{
 			saver = saver->next;
@@ -67,10 +76,10 @@ int get_index(f_list **sx, int data)
 	return (index);
 }
 
-int find_max(f_list **sx)
+int	find_max(f_list **sx)
 {
-	f_list *saver;
-	int max;
+	f_list	*saver;
+	int		max;
 
 	saver = *sx;
 	max = saver->content;
@@ -87,18 +96,16 @@ int find_max(f_list **sx)
 	return (max);
 }
 
-void ft_display(f_list **sa, f_list **sb)
+void	ft_display(f_list **sa, f_list **sb)
 {
 	while (*sa)
 	{
-
 		printf("stack_a = %d\n", (*sa)->content);
 		*sa = (*sa)->next;
 	}
 	printf("\n");
 	while (*sb)
 	{
-
 		printf("stack_b = %d\n", (*sb)->content);
 		*sb = (*sb)->next;
 	}

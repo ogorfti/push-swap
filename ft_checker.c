@@ -6,18 +6,18 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:07:39 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/01 23:18:01 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/05 00:39:24 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *put_in_arr(f_list **sx)
+int	*put_in_arr(f_list **sx)
 {
-	f_list *saver;
-	int *arr;
-	int len;
-	int i;
+	f_list	*saver;
+	int		*arr;
+	int		len;
+	int		i;
 
 	i = 0;
 	len = count_list(sx);
@@ -32,12 +32,12 @@ int *put_in_arr(f_list **sx)
 	return (arr);
 }
 
-int *temp_sort(f_list **sx)
+int	*temp_sort(f_list **sx)
 {
-	int *arr;
-	int len;
-	int i;
-	int j;
+	int		*arr;
+	int		len;
+	int		i;
+	int		j;
 
 	arr = put_in_arr(sx);
 	len = count_list(sx);
@@ -56,11 +56,11 @@ int *temp_sort(f_list **sx)
 	return (arr);
 }
 
-int is_sorted(f_list **sa)
+int	is_sorted(f_list **sa)
 {
 	f_list	*saver;
 	int		*arr;
-	int 	i;
+	int		i;
 
 	i = 0;
 	arr = temp_sort(sa);
@@ -73,13 +73,13 @@ int is_sorted(f_list **sa)
 			saver = saver->next;
 		}
 		else
-			return (1); //not sorted
+			return (1);
 	}
 	free (arr);
-	return (0);	//sorted
+	return (0);
 }
 
-int ft_checker(f_list **sa)
+int	ft_checker(f_list **sa)
 {
 	if (is_sorted(sa) == 0)
 		return (1);
