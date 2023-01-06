@@ -6,7 +6,7 @@
 #    By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:17:09 by ogorfti           #+#    #+#              #
-#    Updated: 2023/01/05 00:50:14 by ogorfti          ###   ########.fr        #
+#    Updated: 2023/01/05 19:32:40 by ogorfti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,11 @@ OBJS =  $(SRCS:.c=.o)
 
 CC = cc
 
-OUT = a.push
+OUT = push_swap
 
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = push_swap
+NAME = push_swap.a
 
 RM = rm -f
 

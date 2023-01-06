@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:07:39 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 00:39:24 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/05 20:58:28 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,55 @@ int	ft_checker(f_list **sa)
 		return (1);
 	else
 		return (0);
+}
+
+int	ft_duplicate(f_list **sa)
+{
+	int	*arr;
+	int	i;
+	int	j;
+	int	len;
+	
+	i = 0;
+	arr = temp_sort(sa);
+	len = count_list(sa);
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (arr[i] != arr[j])
+				j++;
+			else
+				return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int ft_check_max(int ac, char **av)
+{
+	long *arr;
+	int i;
+	int j = 0;
+	
+	i = 1;
+	arr = malloc(sizeof(long) * (ac - 1));
+	while (i <= ac)
+	{
+		arr[j] = ft_atoi(av[i]);
+		i++;
+		j++;
+	}
+	j = 0;
+	//printf ("av[j] : %ld\n", arr[2]);
+	while (j <= ac - 1)
+	{
+		if (arr[j] >= -2147483649 && arr[j] <= 2147483648)
+			j++;
+		else
+			return (1);
+	}
+	return (0);
 }

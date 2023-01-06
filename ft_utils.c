@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:32:20 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 00:52:39 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/05 20:05:57 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,32 @@ int	find_max(f_list **sx)
 			saver = saver->next;
 	}
 	return (max);
+}
+
+long int	ft_atoi(const char *str)
+{
+	long int	i;
+	long int	r;
+	long int	s;
+
+	i = 0;
+	r = 0;
+	s = 1;
+	while ((str[i] >= 9 && str [i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			s = s * (-1);
+			i++;
+	}
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		r = r * 10;
+		r = r + str[i] - 48;
+		i++;
+	}
+	return (s * r);
 }
 
 void	ft_display(f_list **sa, f_list **sb)

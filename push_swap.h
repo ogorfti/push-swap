@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 01:01:51 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/05 20:25:03 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ int		get_anything(f_list **sb, int any);
 int		ft_get_pos_b(f_list **sb, int sa_value);
 void	ft_common_instruction(f_list **sa, f_list **sb, c_instru *c_struct);
 void	ft_optimize(f_list **sa, f_list **sb);
+int		ft_duplicate(f_list **sa);
+long	ft_atoi(const char *str);
+int		ft_check_max(int ac, char **av);
 
 #endif
