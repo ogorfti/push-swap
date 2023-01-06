@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:07:39 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 20:58:28 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/06 15:29:01 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int ft_check_max(int ac, char **av)
 	//printf ("av[j] : %ld\n", arr[2]);
 	while (j <= ac - 1)
 	{
-		if (arr[j] >= -2147483649 && arr[j] <= 2147483648)
+		if (arr[j] > -2147483649 && arr[j] < 2147483648)
 			j++;
 		else
 			return (1);
