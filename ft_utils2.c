@@ -1,99 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 12:32:20 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 20:05:57 by ogorfti          ###   ########.fr       */
+/*   Created: 2023/01/06 20:13:51 by ogorfti           #+#    #+#             */
+/*   Updated: 2023/01/06 20:22:29 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-int	count_list(f_list **sx)
+int	*put_in_arr(f_list **sx)
 {
 	f_list	*saver;
-	int		counter;
+	int		*arr;
+	int		len;
+	int		i;
 
-	counter = 0;
+	i = 0;
+	len = count_list(sx);
 	saver = *sx;
+	arr = malloc(len * sizeof(int));
 	while (saver)
 	{
-		counter++;
+		arr[i] = saver->content;
 		saver = saver->next;
+		i++;
 	}
-	return (counter);
+	return (arr);
 }
 
-int	find_min(f_list **sx)
+int	*temp_sort(f_list **sx)
 {
-	f_list	*saver;
-	int		min;
+	int		*arr;
+	int		len;
+	int		i;
+	int		j;
 
-	saver = *sx;
-	min = saver->content;
-	while (saver)
+	arr = put_in_arr(sx);
+	len = count_list(sx);
+	i = 0;
+	while (i < len)
 	{
-		if (min >= saver->content)
+		j = i + 1;
+		while (j < len)
 		{
-			min = saver->content;
-			saver = saver->next;
+			if (arr[i] > arr[j])
+				ft_swap(&arr[i], &arr[j]);
+			j++;
 		}
-		else
-			saver = saver->next;
+		i++;
 	}
-	return (min);
-}
-
-int	get_index(f_list **sx, int data)
-{
-	f_list	*saver;
-	int		index;
-
-	index = 0;
-	saver = *sx;
-	while (saver)
-	{
-		if (saver->content == data)
-			break ;
-		else
-		{
-			saver = saver->next;
-			index++;
-		}
-	}
-	return (index);
-}
-
-int	find_max(f_list **sx)
-{
-	f_list	*saver;
-	int		max;
-
-	saver = *sx;
-	max = saver->content;
-	while (saver)
-	{
-		if (max <= saver->content)
-		{
-			max = saver->content;
-			saver = saver->next;
-		}
-		else
-			saver = saver->next;
-	}
-	return (max);
+	return (arr);
 }
 
 long int	ft_atoi(const char *str)

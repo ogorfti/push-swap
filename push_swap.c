@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:16:57 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/06 15:33:04 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:36:09 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av)
 	int i;
 
 	i = 1;
-	//printf ("chhhh-- : %d\n", ft_check_max(ac - 1, av));
+	sb = 0;
 	if (ft_check_max(ac - 1, av) == 1)
 	{
 		write(1, "error\n", 6);
@@ -55,6 +55,10 @@ int main(int ac, char **av)
 		else
 			ft_bigx(&sa, &sb);
 	}
-	while(1);
 	//ft_display(&sa, &sb);
+	// free (sa);
+	// free (sb);
+	// check_leaks();
+	// while(1);
+	// free (sb);
 }

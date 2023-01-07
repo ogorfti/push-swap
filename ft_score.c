@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:13:16 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 01:03:17 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:56:28 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	get_anything(f_list **sb, int any)
 	int	*arr;
 	int	temp;
 	int	j;
+	int	value;
 
 	j = count_list(sb) - 1;
 	arr = temp_sort(sb);
@@ -52,26 +53,29 @@ int	get_anything(f_list **sb, int any)
 			j = count_list(sb) - 1;
 		}
 	}
-	return (arr[j]);
+	value = arr[j];
+	free (arr);
+	return (value);
 }
 
-int	ft_get_pos_b(f_list **sb, int sa_value)
+void	ft_rdown1(f_list **sa, int min)
 {
-	int	max_b;
-	int	min_b;
-	int	pos_b;
-	int	tmp;
-
-	max_b = find_max(sb);
-	min_b = find_min(sb);
-	if (sa_value > max_b)
-		pos_b = get_index(sb, max_b);
-	else if (sa_value < min_b)
-		pos_b = get_index(sb, max_b);
-	else
+	while (*sa)
 	{
-		tmp = get_anything(sb, sa_value);
-		pos_b = get_index(sb, tmp);
+		if ((*sa)->content != min)
+			ft_ra(sa);
+		else
+			break ;
 	}
-	return (pos_b);
+}
+
+void	ft_rup1(f_list **sa, int min)
+{
+	while (*sa)
+	{
+		if ((*sa)->content != min)
+			ft_rra(sa);
+		else
+			break ;
+	}
 }

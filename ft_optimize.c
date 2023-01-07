@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:09:11 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 01:07:35 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/07 20:38:41 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ void	ft_rup(f_list **sa, f_list **sb, int data)
 	while (*sa)
 	{
 		if ((*sa)->content != data)
+		{
+			//write (1, "---+\n", 5);
 			ft_rra(sa);
+		}
 		else
 		{
 			ft_pa(sa, sb);
@@ -44,6 +47,7 @@ int	get_midle(f_list **sa, int data)
 {
 	int	*arr;
 	int	temp;
+	int	value;
 	int	j;
 
 	j = 0;
@@ -57,8 +61,55 @@ int	get_midle(f_list **sa, int data)
 			break ;
 		j = 0;
 	}
-	return (arr[j]);
+	value = arr[j];
+	free (arr);
+	return (value);
 }
+
+// void	ft_help_optimize(f_list **sa, f_list **sb, int max_a, int min_a)
+// {
+// 	int	index;
+
+// 	index = get_pos(sb, max_a);
+// 	if ((*sb)->content > max_a)
+// 	{
+// 		if (index <= count_list(sa) / 2)
+// 			ft_rdown(sa, sb, min_a);
+// 		else if (index > count_list(sa) / 2)
+// 			ft_rup(sa, sb, min_a);
+// 	}
+// 	else if ((*sb)->content < min_a)
+// 	{
+// 		if (index <= count_list(sa) / 2)
+// 			ft_rdown(sa, sb, min_a);
+// 		else if (index > count_list(sa) / 2)
+// 			ft_rup(sa, sb, min_a);
+// 	}
+// }
+
+// void	ft_optimize(f_list **sa, f_list **sb)
+// {
+// 	int	max_a;
+// 	int	min_a;
+// 	int	index;
+// 	int	midle;
+
+// 	while (*sb)
+// 	{
+// 		max_a = find_max(sa);
+// 		min_a = find_min(sa);
+// 		ft_help_optimize(sa, sb, max_a, min_a);
+// 		if ((*sb)->content != min_a && (*sb)->content != max_a)
+// 		{
+// 			midle = get_midle(sa, (*sb)->content);
+// 			index = get_pos(sa, midle);
+// 			if (index <= count_list(sa) / 2)
+// 				ft_rdown(sa, sb, midle);
+// 			else if (index > count_list(sa) / 2)
+// 				ft_rup(sa, sb, midle);
+// 		}
+// 	}
+// }
 
 void	ft_optimize(f_list **sa, f_list **sb)
 {
@@ -97,3 +148,4 @@ void	ft_optimize(f_list **sa, f_list **sb)
 		}
 	}
 }
+

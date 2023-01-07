@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 20:25:03 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:31:24 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct common_instruction
 	int	ra;
 	int	rb;
 	int	rra;
-	int	rrb;	
-}	c_instru;
+	int	rrb;
+}t_instru;
 
 void	ft_swap(int *a, int *b);
 void	ft_pb(f_list **stackA, f_list **stackB);
@@ -66,10 +66,14 @@ int		*temp_sort(f_list **sx);
 int		get_pos(f_list **sx, int max);
 int		get_anything(f_list **sb, int any);
 int		ft_get_pos_b(f_list **sb, int sa_value);
-void	ft_common_instruction(f_list **sa, f_list **sb, c_instru *c_struct);
+void	ft_common_instruction(f_list **sa, f_list **sb, t_instru *struct1);
 void	ft_optimize(f_list **sa, f_list **sb);
 int		ft_duplicate(f_list **sa);
 long	ft_atoi(const char *str);
 int		ft_check_max(int ac, char **av);
+int		ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count);
+void	ft_rdown1(f_list **sa, int min);
+void	ft_rup1(f_list **sa, int min);
+void	check_leaks();
 
 #endif
