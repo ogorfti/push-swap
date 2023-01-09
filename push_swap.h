@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 11:15:29 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 16:20:56 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ int		ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count);
 int		ft_searching(f_list **sa, int search);
 void	ft_putdown(f_list **sa, int min);
 void	ft_putup(f_list **sa, int min);
+char	*ft_strjoin(char *str1, char *str2);
+char	**ft_split(char const *s, char c);
+void	*ft_calloc(size_t nitems, size_t size);
+char	*ft_join_args(int ac, char **av);
+f_list	*ft_split_args(int ac, char **av);
+int		ft_strlen(char *s);
 void	check_leaks();
 
 #endif
