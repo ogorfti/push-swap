@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:22:20 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 21:31:08 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:09:18 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count)
 	count->rra = 0;
 	count->rrb = 0;
 	index_a = get_index(sa, data);
-	if (index_a <=  count_list(sa)/ 2)
+	if (index_a <= count_list(sa) / 2)
 		count->ra = index_a;
 	else if (index_a > count_list(sa) / 2)
 		count->rra = count_list(sa) - index_a;
@@ -94,79 +94,3 @@ int	ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count)
 		score = score + ft_help2(count->rra, count->rrb);
 	return (score + 1);
 }
-
-
-// int	ft_get_score(f_list **sa, f_list **sb, int data)
-// {
-// 	int	score;
-// 	int	index_a;
-// 	int	index_b;
-// 	int	count_ra;
-// 	int	count_rb;
-// 	int	count_rra;
-// 	int	count_rrb;
-// 	int	comn_rr;
-// 	int	comn_rrr;
-
-// 	count_ra = 0;
-// 	count_rb = 0;
-// 	count_rra = 0;
-// 	count_rrb = 0;
-// 	comn_rr = 0;
-// 	comn_rrr = 0;
-// 	index_a = get_index(sa, data);
-// 	if (index_a <= count_list(sa) / 2)
-// 		count_ra = index_a;
-// 	else if (index_a > count_list(sa) / 2)
-// 		count_rra = count_list(sa) - index_a;
-// 	index_b = ft_get_pos_b(sb, data);
-// 	if (index_b <= count_list(sb) / 2)
-// 		count_rb = index_b;
-// 	else if (index_b > count_list(sb) / 2)
-// 		count_rrb = count_list(sb) - index_b;
-// 	if (count_ra >= 0 && count_rb >= 0)
-// 	{
-// 		if (count_ra == count_rb)
-// 		{
-// 			comn_rr = count_ra;
-// 			count_ra = 0;
-// 			count_rb = 0;
-// 		}
-// 		else if (count_ra > count_rb)
-// 		{
-// 			comn_rr = count_rb;
-// 			count_ra = count_ra - count_rb;
-// 			count_rb = 0;
-// 		}
-// 		else if (count_ra < count_rb)
-// 		{
-// 			comn_rr = count_ra;
-// 			count_rb = count_rb - count_ra;
-// 			count_ra = 0;
-// 		}
-// 	}
-// 	if (count_rra >= 0 && count_rrb >= 0)
-// 	{
-// 		if (count_rra == count_rrb)
-// 		{
-// 			comn_rrr = count_rra;
-// 			count_rra = 0;
-// 			count_rrb = 0;
-// 		}
-// 		else if (count_rra > count_rrb)
-// 		{
-// 			comn_rrr = count_rrb;
-// 			count_rra = count_rra - count_rrb;
-// 			count_rrb = 0;
-// 		}
-// 		else if (count_rra < count_rrb)
-// 		{
-// 			comn_rrr = count_rra;
-// 			count_rrb = count_rrb - count_rra;
-// 			count_rra = 0;
-// 		}
-// 	}
-// 	score = count_ra + count_rb + count_rra + count_rrb + comn_rr + comn_rrr + 1;
-// 	return (score);
-// }
-

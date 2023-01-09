@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 21:31:24 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:15:29 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ int		ft_duplicate(f_list **sa);
 long	ft_atoi(const char *str);
 int		ft_check_max(int ac, char **av);
 int		ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count);
-void	ft_rdown1(f_list **sa, int min);
-void	ft_rup1(f_list **sa, int min);
+int		ft_searching(f_list **sa, int search);
+void	ft_putdown(f_list **sa, int min);
+void	ft_putup(f_list **sa, int min);
 void	check_leaks();
 
 #endif

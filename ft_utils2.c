@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:13:51 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/06 20:22:29 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:03:54 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,20 @@ long int	ft_atoi(const char *str)
 
 void	ft_display(f_list **sa, f_list **sb)
 {
-	while (*sa)
+	f_list	*saver_a;
+	f_list	*saver_b;
+
+	saver_b = *sb;
+	saver_a = *sa;
+	while (saver_a)
 	{
-		printf("stack_a = %d\n", (*sa)->content);
-		*sa = (*sa)->next;
+		printf("stack_a = %d\n", saver_a->content);
+		saver_a = saver_a->next;
 	}
 	printf("\n");
-	while (*sb)
+	while (saver_b)
 	{
-		printf("stack_b = %d\n", (*sb)->content);
-		*sb = (*sb)->next;
+		printf("stack_b = %d\n", saver_b->content);
+		saver_b = saver_b->next;
 	}
 }

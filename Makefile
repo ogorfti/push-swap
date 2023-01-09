@@ -6,7 +6,7 @@
 #    By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:17:09 by ogorfti           #+#    #+#              #
-#    Updated: 2023/01/06 20:23:21 by ogorfti          ###   ########.fr        #
+#    Updated: 2023/01/09 11:16:47 by ogorfti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRCS =	push_swap.c\
 		ft_bigx.c\
 		ft_score.c\
 		ft_comn_instru.c\
-		ft_optimize.c\
 		ft_bigx_utils.c\
 		leacks_cheker_ex.c\
 

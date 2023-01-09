@@ -6,11 +6,29 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:13:16 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 15:56:28 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:49:45 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_searching(f_list **sa, int search)
+{
+	f_list	*saver;
+	int		finder;
+
+	saver = *sa;
+	finder = INT_MIN;
+	while (saver)
+	{
+		if (saver->content < search && saver->content > finder)
+		{
+			finder = saver->content;
+		}
+		saver = saver->next;
+	}
+	return (finder);
+}
 
 int	get_pos(f_list **sx, int max)
 {
@@ -32,33 +50,28 @@ int	get_pos(f_list **sx, int max)
 	return (pos);
 }
 
-int	get_anything(f_list **sb, int any)
+int	ft_get_pos_b(f_list **sb, int sa_value)
 {
-	int	*arr;
-	int	temp;
-	int	j;
-	int	value;
+	int	max_b;
+	int	min_b;
+	int	pos_b;
+	int	tmp;
 
-	j = count_list(sb) - 1;
-	arr = temp_sort(sb);
-	temp = any;
-	if (any > find_min(sb) && any < find_max(sb))
+	max_b = find_max(sb);
+	min_b = find_min(sb);
+	if (sa_value > max_b)
+		pos_b = get_index(sb, max_b);
+	else if (sa_value < min_b)
+		pos_b = get_index(sb, max_b);
+	else
 	{
-		while (--temp >= find_min(sb))
-		{
-			while (temp != arr[j] && j > 0)
-				j--;
-			if (temp == arr[j])
-				break ;
-			j = count_list(sb) - 1;
-		}
+		tmp = ft_searching(sb, sa_value);
+		pos_b = get_index(sb, tmp);
 	}
-	value = arr[j];
-	free (arr);
-	return (value);
+	return (pos_b);
 }
 
-void	ft_rdown1(f_list **sa, int min)
+void	ft_putdown(f_list **sa, int min)
 {
 	while (*sa)
 	{
@@ -69,7 +82,7 @@ void	ft_rdown1(f_list **sa, int min)
 	}
 }
 
-void	ft_rup1(f_list **sa, int min)
+void	ft_putup(f_list **sa, int min)
 {
 	while (*sa)
 	{

@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:16:57 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 21:36:09 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:50:10 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,9 @@ int main(int ac, char **av)
 		else
 			ft_bigx(&sa, &sb);
 	}
-	//ft_display(&sa, &sb);
+	// ft_display(&sa, &sb);
 	// free (sa);
 	// free (sb);
 	// check_leaks();
 	// while(1);
-	// free (sb);
 }

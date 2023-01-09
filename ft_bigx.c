@@ -6,32 +6,11 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:25:37 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 21:34:52 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/09 11:47:29 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_get_pos_b(f_list **sb, int sa_value)
-{
-	int	max_b;
-	int	min_b;
-	int	pos_b;
-	int	tmp;
-
-	max_b = find_max(sb);
-	min_b = find_min(sb);
-	if (sa_value > max_b)
-		pos_b = get_index(sb, max_b);
-	else if (sa_value < min_b)
-		pos_b = get_index(sb, max_b);
-	else
-	{
-		tmp = get_anything(sb, sa_value);
-		pos_b = get_index(sb, tmp);
-	}
-	return (pos_b);
-}
 
 t_winner	*ft_final_score(f_list **sa, f_list **sb, t_instru *count)
 {
@@ -54,10 +33,34 @@ t_winner	*ft_final_score(f_list **sa, f_list **sb, t_instru *count)
 			winner->score = score;
 		}
 		if (score == 1)
-			break;
+			break ;
 		saver_a = saver_a->next;
 	}
 	return (winner);
+}
+
+t_instru	*ft_help(f_list **sa, f_list **sb, t_winner *win, t_instru *stc1)
+{
+	int	count_sa;
+	int	count_sb;
+
+	count_sa = count_list(sa);
+	count_sb = count_list(sb);
+	if (win->pos_a >= 0)
+	{
+		if (win->pos_a <= count_sa / 2)
+			stc1->ra = win->pos_a;
+		else if (win->pos_a > count_sa / 2)
+			stc1->rra = count_sa - win->pos_a;
+	}
+	if (win->pos_b >= 0)
+	{
+		if (win->pos_b <= count_sb / 2)
+			stc1->rb = win->pos_b;
+		else if (win->pos_b > count_sb / 2)
+			stc1->rrb = count_sb - win->pos_b;
+	}
+	return (stc1);
 }
 
 void	ft_push_winner(f_list **sa, f_list **sb)
@@ -68,31 +71,18 @@ void	ft_push_winner(f_list **sa, f_list **sb)
 
 	struct1 = malloc(sizeof(t_instru));
 	count = malloc(sizeof(t_instru));
-	while (count_list(sa) > 3)
+	while (*sa)
 	{
 		struct1->ra = 0;
 		struct1->rb = 0;
 		struct1->rra = 0;
 		struct1->rrb = 0;
 		winner = ft_final_score(sa, sb, count);
-		if (winner->pos_a >= 0)
-		{
-			if (winner->pos_a <=  count_list(sa)/ 2)
-				struct1->ra = winner->pos_a;
-			else if (winner->pos_a > count_list(sa) / 2)
-				struct1->rra = count_list(sa) - winner->pos_a;
-		}
-		if (winner->pos_b >= 0)
-		{
-			if (winner->pos_b <= count_list(sb) / 2)
-				struct1->rb = winner->pos_b;
-			else if (winner->pos_b > count_list(sb) / 2)
-				struct1->rrb = count_list(sb) - winner->pos_b;
-		}
+		struct1 = ft_help(sa, sb, winner, struct1);
 		ft_common_instruction(sa, sb, struct1);
-		// free (winner);
+		free (winner);
 	}
-	// free (struct1);
+	free (struct1);
 }
 
 void	ft_bigx(f_list **sa, f_list **sb)
@@ -109,27 +99,12 @@ void	ft_bigx(f_list **sa, f_list **sb)
 	}
 	ft_push_winner(sa, sb);
 	ft_smallx(sa, sb, count_list(sa));
-	ft_optimize(sa, sb);
+	while (*sb)
+		ft_pa(sa, sb);
 	min = find_min(sa);
 	index = get_index(sa, min);
 	if (index <= count_list(sa) / 2)
-	{
-		while (*sa)
-		{
-			if ((*sa)->content != min)
-				ft_ra(sa);
-			else
-				break ;
-		}
-	}
+		ft_putdown(sa, min);
 	else if (index > count_list(sa) / 2)
-	{
-		while (*sa)
-		{
-			if ((*sa)->content != min)
-				ft_rra(sa);
-			else
-				break ;
-		}
-	}
+		ft_putup(sa, min);
 }
