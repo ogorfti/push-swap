@@ -6,7 +6,7 @@
 #    By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:17:09 by ogorfti           #+#    #+#              #
-#    Updated: 2023/01/09 18:23:24 by ogorfti          ###   ########.fr        #
+#    Updated: 2023/01/10 16:04:35 by ogorfti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCS =	push_swap.c\
 		ft_comn_instru.c\
 		ft_bigx_utils.c\
 		leacks_cheker_ex.c\
-		ft_check_utils.c\
+		ft_check_utils1.c\
+		ft_check_utils2.c\
+		ft_check_utils3.c\
 		ft_check_args.c\
 
 OBJS =  $(SRCS:.c=.o)

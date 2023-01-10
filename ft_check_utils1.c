@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_utils.c                                   :+:      :+:    :+:   */
+/*   ft_check_utils1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:11:24 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 18:14:45 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 15:52:53 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	*ft_calloc(size_t nitems, size_t size)
-{
-	size_t	i;
-	char	*arr;
-
-	i = 0;
-	if (nitems >= SIZE_MAX || size >= SIZE_MAX)
-		return (NULL);
-	arr = malloc(nitems * size);
-	if (!arr)
-		return (NULL);
-	while (i < nitems * size)
-		arr[i++] = '\0';
-	return (arr);
-}
 
 int	ft_strlen(char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (s[i] == '\0')
 		return (0);
 	while (s[i])
 		i++;
@@ -129,4 +113,3 @@ char	**ft_split(char const *s, char c)
 	big[j] = 0;
 	return (big);
 }
-
