@@ -6,16 +6,16 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:45:31 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 18:42:30 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:13:40 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra(f_list **stackA)
+void	ft_ra(t_list **stackA)
 {
-	f_list	*tmp;
-	f_list	*curr;
+	t_list	*tmp;
+	t_list	*curr;
 
 	if ((*stackA)->next == 0)
 		return ;
@@ -30,10 +30,10 @@ void	ft_ra(f_list **stackA)
 	write(1, "ra\n", 3);
 }
 
-void	ft_rb(f_list **stackB)
+void	ft_rb(t_list **stackB)
 {
-	f_list	*tmp;
-	f_list	*curr;
+	t_list	*tmp;
+	t_list	*curr;
 
 	if ((*stackB)->next == 0)
 		return ;
@@ -48,10 +48,10 @@ void	ft_rb(f_list **stackB)
 	write(1, "rb\n", 3);
 }
 
-void	ft_ra_helper(f_list **stackA)
+void	ft_ra_helper(t_list **stackA)
 {
-	f_list	*tmp;
-	f_list	*curr;
+	t_list	*tmp;
+	t_list	*curr;
 
 	if ((*stackA)->next == 0)
 		return ;
@@ -65,10 +65,10 @@ void	ft_ra_helper(f_list **stackA)
 	*stackA = curr;
 }
 
-void	ft_rb_helper(f_list **stackB)
+void	ft_rb_helper(t_list **stackB)
 {
-	f_list	*tmp;
-	f_list	*curr;
+	t_list	*tmp;
+	t_list	*curr;
 
 	if ((*stackB)->next == 0)
 		return ;
@@ -82,7 +82,7 @@ void	ft_rb_helper(f_list **stackB)
 	*stackB = curr;
 }
 
-void	ft_rr(f_list **stackA, f_list **stackB)
+void	ft_rr(t_list **stackA, t_list **stackB)
 {
 	ft_ra_helper(&(*stackA));
 	ft_rb_helper(&(*stackB));

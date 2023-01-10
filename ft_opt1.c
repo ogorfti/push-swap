@@ -6,20 +6,20 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 12:24:21 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/05 00:49:33 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:13:28 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pb(f_list **stackA, f_list **stackB)
+void	ft_pb(t_list **stackA, t_list **stackB)
 {
-	f_list	*tmp;
-	f_list	*new;
+	t_list	*tmp;
+	t_list	*new;
 
 	if (!*stackB)
 	{
-		*stackB = malloc(sizeof(f_list));
+		*stackB = malloc(sizeof(t_list));
 		(*stackB)->content = (*stackA)->content;
 		(*stackB)->next = 0;
 		tmp = *stackA;
@@ -29,7 +29,7 @@ void	ft_pb(f_list **stackA, f_list **stackB)
 	}
 	else
 	{
-		new = malloc(sizeof(f_list));
+		new = malloc(sizeof(t_list));
 		new->content = (*stackA)->content;
 		new->next = (*stackB);
 		(*stackB) = new;
@@ -40,7 +40,7 @@ void	ft_pb(f_list **stackA, f_list **stackB)
 	}
 }
 
-void	ft_sa(f_list **stackA)
+void	ft_sa(t_list **stackA)
 {
 	if ((*stackA)->next != 0)
 	{
@@ -51,7 +51,7 @@ void	ft_sa(f_list **stackA)
 		return ;
 }
 
-void	ft_sb(f_list **stackB)
+void	ft_sb(t_list **stackB)
 {
 	if ((*stackB)->next != 0)
 	{
@@ -62,7 +62,7 @@ void	ft_sb(f_list **stackB)
 		return ;
 }
 
-void	ft_ss(f_list **stackA, f_list **stackB)
+void	ft_ss(t_list **stackA, t_list **stackB)
 {
 	if ((*stackA)->next->content && (*stackB)->next->content)
 	{
@@ -72,14 +72,14 @@ void	ft_ss(f_list **stackA, f_list **stackB)
 	}
 }
 
-void	ft_pa(f_list **stackA, f_list **stackB)
+void	ft_pa(t_list **stackA, t_list **stackB)
 {
-	f_list	*tmp;
-	f_list	*new;
+	t_list	*tmp;
+	t_list	*new;
 
 	if (!*stackA)
 	{
-		*stackA = malloc(sizeof(f_list));
+		*stackA = malloc(sizeof(t_list));
 		(*stackA)->content = (*stackB)->content;
 		(*stackA)->next = 0;
 		tmp = *stackB;
@@ -89,7 +89,7 @@ void	ft_pa(f_list **stackA, f_list **stackB)
 	}
 	else
 	{
-		new = malloc(sizeof(f_list));
+		new = malloc(sizeof(t_list));
 		new->content = (*stackB)->content;
 		new->next = (*stackA);
 		(*stackA) = new;

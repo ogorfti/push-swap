@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 13:16:57 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:15:34 by ogorfti          ###   ########.fr       */
+/*   Created: 2022/11/07 12:14:37 by ogorfti           #+#    #+#             */
+/*   Updated: 2022/11/09 16:34:41 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#	ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int main(int ac, char **av)
-{
-	t_list *sa;
-	t_list *sb;
-	int count;
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
 
-	sb = 0;
-	if (ac <= 1)
-		return (0);
-	if (ac >= 2)
-	{
-		sa = ft_split_args(ac, av);
-		count = count_list(&sa);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
-		if (count_list(&sa) <= 5)
-			ft_smallx(&sa, &sb, count);
-		else
-			ft_bigx(&sa, &sb);
-	}
-	// ft_display(&sa, &sb);
-	//free (sa);
-	// free (sb);
-	// check_leaks();
-	// while(1);
-}
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *str1, char *str2);
+int		ft_strlen(char *s);
+char	*ft_strchr(char *s, char c);
+void	*ft_calloc(size_t nitems, size_t size);
+
+#endif

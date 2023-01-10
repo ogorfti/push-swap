@@ -6,15 +6,15 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:25:37 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 11:47:29 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:10:57 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_winner	*ft_final_score(f_list **sa, f_list **sb, t_instru *count)
+t_winner	*ft_final_score(t_list **sa, t_list **sb, t_instru *count)
 {
-	f_list		*saver_a;
+	t_list		*saver_a;
 	t_winner	*winner;
 	int			temp;
 	int			score;
@@ -39,7 +39,7 @@ t_winner	*ft_final_score(f_list **sa, f_list **sb, t_instru *count)
 	return (winner);
 }
 
-t_instru	*ft_help(f_list **sa, f_list **sb, t_winner *win, t_instru *stc1)
+t_instru	*ft_help(t_list **sa, t_list **sb, t_winner *win, t_instru *stc1)
 {
 	int	count_sa;
 	int	count_sb;
@@ -63,7 +63,7 @@ t_instru	*ft_help(f_list **sa, f_list **sb, t_winner *win, t_instru *stc1)
 	return (stc1);
 }
 
-void	ft_push_winner(f_list **sa, f_list **sb)
+void	ft_push_winner(t_list **sa, t_list **sb)
 {
 	t_winner	*winner;
 	t_instru	*struct1;
@@ -85,7 +85,7 @@ void	ft_push_winner(f_list **sa, f_list **sb)
 	free (struct1);
 }
 
-void	ft_bigx(f_list **sa, f_list **sb)
+void	ft_bigx(t_list **sa, t_list **sb)
 {
 	int	i;
 	int	min;

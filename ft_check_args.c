@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:10:26 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 16:54:35 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:11:19 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,21 @@ char	*ft_join_args(int ac, char **av)
 	return (joiner);
 }
 
-f_list	*ft_fill_lst(char **spilter, f_list **sa, int j)
+t_list	*ft_fill_lst(char **spilter, t_list **sa, int j)
 {
-	f_list	*new;
+	t_list	*new;
 
 	while (j >= 0)
 	{
 		if (!(*sa))
 		{
-			(*sa) = malloc(sizeof(f_list));
+			(*sa) = malloc(sizeof(t_list));
 			(*sa)->content = ft_atoi(spilter[j]);
 			(*sa)->next = 0;
 		}
 		else
 		{
-			new = malloc(sizeof(f_list));
+			new = malloc(sizeof(t_list));
 			new->content = ft_atoi(spilter[j]);
 			new->next = (*sa);
 			(*sa) = new;
@@ -79,11 +79,11 @@ f_list	*ft_fill_lst(char **spilter, f_list **sa, int j)
 	return (*sa);
 }
 
-f_list	*ft_split_args(int ac, char **av)
+t_list	*ft_split_args(int ac, char **av)
 {
 	char	**spilter;
 	char	*joiner;
-	f_list	*sa;
+	t_list	*sa;
 	int		count;
 
 	count = 0;

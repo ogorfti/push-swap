@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 16:04:16 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:10:25 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct list{
 	int			content;
 	struct list	*next;
-}f_list;
+}t_list;
 
 typedef struct getscore{
 	int	pos_a;
@@ -39,50 +39,50 @@ typedef struct common_instruction
 }t_instru;
 
 void	ft_swap(int *a, int *b);
-void	ft_pb(f_list **stackA, f_list **stackB);
-void	ft_sa(f_list **stackA);
-void	ft_sb(f_list **stackB);
-void	ft_ss(f_list **stackA, f_list **stackB);
-void	ft_pa(f_list **stackA, f_list **stackB);
-void	ft_ra(f_list **stackA);
-void	ft_rb(f_list **stackB);
-void	ft_rr(f_list **stackA, f_list **stackB);
-void	ft_rra(f_list **stackA);
-void	ft_rrb(f_list **stackB);
-void	ft_rrr(f_list **stackA, f_list **stackb);
-void	ft_sort3(f_list **stackA);
-void	ft_sort4(f_list **sa, f_list **sb);
-void	ft_sort5(f_list **sa, f_list **sb);
-int		count_list(f_list **sx);
-int		find_min(f_list **sx);
-int		get_index(f_list **sx, int data);
-void	ft_display(f_list **sa, f_list **sb);
-void	ft_smallx(f_list **sa, f_list **sb, int ac);
-int		ft_checker(f_list **sa);
-void	ft_bigx(f_list **sa, f_list **sb);
-int		find_max(f_list **sx);
-int		*put_in_arr(f_list **sx);
-int		*temp_sort(f_list **sx);
-int		get_pos(f_list **sx, int max);
-int		get_anything(f_list **sb, int any);
-int		ft_get_pos_b(f_list **sb, int sa_value);
-void	ft_common_instruction(f_list **sa, f_list **sb, t_instru *struct1);
-void	ft_optimize(f_list **sa, f_list **sb);
-int		ft_duplicate(f_list **sa);
+void	ft_pb(t_list **stackA, t_list **stackB);
+void	ft_sa(t_list **stackA);
+void	ft_sb(t_list **stackB);
+void	ft_ss(t_list **stackA, t_list **stackB);
+void	ft_pa(t_list **stackA, t_list **stackB);
+void	ft_ra(t_list **stackA);
+void	ft_rb(t_list **stackB);
+void	ft_rr(t_list **stackA, t_list **stackB);
+void	ft_rra(t_list **stackA);
+void	ft_rrb(t_list **stackB);
+void	ft_rrr(t_list **stackA, t_list **stackb);
+void	ft_sort3(t_list **stackA);
+void	ft_sort4(t_list **sa, t_list **sb);
+void	ft_sort5(t_list **sa, t_list **sb);
+int		count_list(t_list **sx);
+int		find_min(t_list **sx);
+int		get_index(t_list **sx, int data);
+void	ft_display(t_list **sa, t_list **sb);
+void	ft_smallx(t_list **sa, t_list **sb, int ac);
+int		ft_checker(t_list **sa);
+void	ft_bigx(t_list **sa, t_list **sb);
+int		find_max(t_list **sx);
+int		*put_in_arr(t_list **sx);
+int		*temp_sort(t_list **sx);
+int		get_pos(t_list **sx, int max);
+int		get_anything(t_list **sb, int any);
+int		ft_get_pos_b(t_list **sb, int sa_value);
+void	ft_common_instruction(t_list **sa, t_list **sb, t_instru *struct1);
+void	ft_optimize(t_list **sa, t_list **sb);
+int		ft_duplicate(t_list **sa);
 long	ft_atoi(const char *str);
 int		ft_check_max(int ac, char **av);
-int		ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count);
-int		ft_searching(f_list **sa, int search);
-void	ft_putdown(f_list **sa, int min);
-void	ft_putup(f_list **sa, int min);
+int		ft_get_score(t_list **sa, t_list **sb, int data, t_instru *count);
+int		ft_searching(t_list **sa, int search);
+void	ft_putdown(t_list **sa, int min);
+void	ft_putup(t_list **sa, int min);
 char	*ft_strjoin(char *str1, char *str2);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t nitems, size_t size);
 char	*ft_join_args(int ac, char **av);
-f_list	*ft_split_args(int ac, char **av);
+t_list	*ft_split_args(int ac, char **av);
 int		ft_strlen(char *s);
-int		is_sorted(f_list **sa);
-int		ft_duplicate(f_list **sa);
+int		is_sorted(t_list **sa);
+int		ft_duplicate(t_list **sa);
 int		ft_big_sign(char **s);
 void	check_leaks();
 

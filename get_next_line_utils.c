@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_utils2.c                                  :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 15:52:16 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:11:43 by ogorfti          ###   ########.fr       */
+/*   Created: 2022/11/07 12:14:13 by ogorfti           #+#    #+#             */
+/*   Updated: 2023/01/10 18:50:12 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "get_next_line.h"
+
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strchr(char *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != c)
+	{
+		if (s[i] == '\0')
+			return (NULL);
+		i++;
+	}
+	return (&s[i]);
+}
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
@@ -28,57 +54,25 @@ void	*ft_calloc(size_t nitems, size_t size)
 	return (arr);
 }
 
-int	is_sorted(t_list **sa)
+char	*ft_strjoin(char *str1, char *str2)
 {
-	t_list	*saver;
-	int		*arr;
+	char	*join;
 	int		i;
+	int		j;
 
 	i = 0;
-	arr = temp_sort(sa);
-	saver = *sa;
-	while (saver)
+	if (!str1 || !str2)
+		return (NULL);
+	join = malloc(ft_strlen (str1) + ft_strlen (str2) + 1);
+	while (str1[i])
 	{
-		if (arr[i] == saver->content)
-		{
-			i++;
-			saver = saver->next;
-		}
-		else
-		{
-			free(arr);
-			return (0);
-		}
-	}
-	free(arr);
-	return (1);
-}
-
-int	ft_duplicate(t_list **sa)
-{
-	int	*arr;
-	int	i;
-	int	j;
-	int	len;
-
-	i = 0;
-	arr = temp_sort(sa);
-	len = count_list(sa);
-	while (i < len)
-	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (arr[i] != arr[j])
-				j++;
-			else
-			{
-				free(arr);
-				return (1);
-			}
-		}
+		join[i] = str1[i];
 		i++;
 	}
-	free(arr);
-	return (0);
+	j = 0;
+	while (str2[j])
+		join[i++] = str2[j++];
+	join[i] = '\0';
+	free (str1);
+	return (join);
 }

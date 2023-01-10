@@ -6,15 +6,15 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:13:51 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 11:03:54 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:15:17 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*put_in_arr(f_list **sx)
+int	*put_in_arr(t_list **sx)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		*arr;
 	int		len;
 	int		i;
@@ -32,7 +32,7 @@ int	*put_in_arr(f_list **sx)
 	return (arr);
 }
 
-int	*temp_sort(f_list **sx)
+int	*temp_sort(t_list **sx)
 {
 	int		*arr;
 	int		len;
@@ -82,10 +82,10 @@ long int	ft_atoi(const char *str)
 	return (s * r);
 }
 
-void	ft_display(f_list **sa, f_list **sb)
+void	ft_display(t_list **sa, t_list **sb)
 {
-	f_list	*saver_a;
-	f_list	*saver_b;
+	t_list	*saver_a;
+	t_list	*saver_b;
 
 	saver_b = *sb;
 	saver_a = *sa;

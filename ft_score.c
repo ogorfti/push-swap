@@ -6,15 +6,15 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:13:16 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 11:49:45 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:14:07 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_searching(f_list **sa, int search)
+int	ft_searching(t_list **sa, int search)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		finder;
 
 	saver = *sa;
@@ -30,9 +30,9 @@ int	ft_searching(f_list **sa, int search)
 	return (finder);
 }
 
-int	get_pos(f_list **sx, int max)
+int	get_pos(t_list **sx, int max)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		pos;
 
 	pos = 0;
@@ -50,7 +50,7 @@ int	get_pos(f_list **sx, int max)
 	return (pos);
 }
 
-int	ft_get_pos_b(f_list **sb, int sa_value)
+int	ft_get_pos_b(t_list **sb, int sa_value)
 {
 	int	max_b;
 	int	min_b;
@@ -71,7 +71,7 @@ int	ft_get_pos_b(f_list **sb, int sa_value)
 	return (pos_b);
 }
 
-void	ft_putdown(f_list **sa, int min)
+void	ft_putdown(t_list **sa, int min)
 {
 	while (*sa)
 	{
@@ -82,7 +82,7 @@ void	ft_putdown(f_list **sa, int min)
 	}
 }
 
-void	ft_putup(f_list **sa, int min)
+void	ft_putup(t_list **sa, int min)
 {
 	while (*sa)
 	{

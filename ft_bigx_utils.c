@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:22:20 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 11:09:18 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:10:37 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_help2(int count_rra, int count_rrb)
 	return (score);
 }
 
-int	ft_get_score(f_list **sa, f_list **sb, int data, t_instru *count)
+int	ft_get_score(t_list **sa, t_list **sb, int data, t_instru *count)
 {
 	int	score;
 	int	index_a;

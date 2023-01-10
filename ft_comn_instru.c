@@ -6,13 +6,13 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:19:55 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/07 20:27:44 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:13:08 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_help_rsmall(f_list **sa, f_list **sb, int ra, int rb)
+void	ft_help_rsmall(t_list **sa, t_list **sb, int ra, int rb)
 {
 	if (ra > rb)
 	{
@@ -36,7 +36,7 @@ void	ft_help_rsmall(f_list **sa, f_list **sb, int ra, int rb)
 	}
 }
 
-void	ft_rsmall(f_list **sa, f_list **sb, int ra, int rb)
+void	ft_rsmall(t_list **sa, t_list **sb, int ra, int rb)
 {
 	if (ra == rb)
 	{
@@ -49,7 +49,7 @@ void	ft_rsmall(f_list **sa, f_list **sb, int ra, int rb)
 	ft_help_rsmall(sa, sb, ra, rb);
 }
 
-void	ft_help_rbig(f_list **sa, f_list **sb, int rra, int rrb)
+void	ft_help_rbig(t_list **sa, t_list **sb, int rra, int rrb)
 {
 	if (rra > rrb)
 	{
@@ -73,7 +73,7 @@ void	ft_help_rbig(f_list **sa, f_list **sb, int rra, int rrb)
 	}
 }
 
-void	ft_rbig(f_list **sa, f_list **sb, int rra, int rrb)
+void	ft_rbig(t_list **sa, t_list **sb, int rra, int rrb)
 {
 	if (rra == rrb)
 	{
@@ -86,7 +86,7 @@ void	ft_rbig(f_list **sa, f_list **sb, int rra, int rrb)
 	ft_help_rbig(sa, sb, rra, rrb);
 }
 
-void	ft_common_instruction(f_list **sa, f_list **sb, t_instru *c_struct)
+void	ft_common_instruction(t_list **sa, t_list **sb, t_instru *c_struct)
 {
 	if (c_struct->ra > 0 && c_struct->rb > 0)
 		ft_rsmall(sa, sb, c_struct->ra, c_struct->rb);

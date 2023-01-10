@@ -6,13 +6,13 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:30:56 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/01 14:05:28 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:14:28 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort3(f_list **stackA)
+void	ft_sort3(t_list **stackA)
 {
 	int	n1;
 	int	n2;

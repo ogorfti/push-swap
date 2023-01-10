@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:32:20 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/09 11:02:49 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:14:53 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-int	count_list(f_list **sx)
+int	count_list(t_list **sx)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		counter;
 
 	counter = 0;
@@ -36,9 +36,9 @@ int	count_list(f_list **sx)
 	return (counter);
 }
 
-int	find_min(f_list **sx)
+int	find_min(t_list **sx)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		min;
 
 	saver = *sx;
@@ -52,9 +52,9 @@ int	find_min(f_list **sx)
 	return (min);
 }
 
-int	get_index(f_list **sx, int data)
+int	get_index(t_list **sx, int data)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		index;
 
 	index = 0;
@@ -72,9 +72,9 @@ int	get_index(f_list **sx, int data)
 	return (index);
 }
 
-int	find_max(f_list **sx)
+int	find_max(t_list **sx)
 {
-	f_list	*saver;
+	t_list	*saver;
 	int		max;
 
 	saver = *sx;

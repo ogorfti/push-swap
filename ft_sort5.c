@@ -6,13 +6,13 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:08:09 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/01 19:37:08 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:14:40 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_inf(f_list **sa, f_list **sb, int min)
+void	ft_inf(t_list **sa, t_list **sb, int min)
 {
 	while (*sa)
 	{
@@ -26,7 +26,7 @@ void	ft_inf(f_list **sa, f_list **sb, int min)
 	}
 }
 
-void	ft_sup(f_list **sa, f_list **sb, int min)
+void	ft_sup(t_list **sa, t_list **sb, int min)
 {
 	while (*sa)
 	{
@@ -40,7 +40,7 @@ void	ft_sup(f_list **sa, f_list **sb, int min)
 	}
 }
 
-void	ft_sort4(f_list **sa, f_list **sb)
+void	ft_sort4(t_list **sa, t_list **sb)
 {
 	int	min;
 	int	index;
@@ -55,7 +55,7 @@ void	ft_sort4(f_list **sa, f_list **sb)
 	ft_pa(sa, sb);
 }
 
-void	ft_sort5(f_list **sa, f_list **sb)
+void	ft_sort5(t_list **sa, t_list **sb)
 {
 	int	min;
 	int	index;
