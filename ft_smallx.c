@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 13:00:31 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:14:19 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 19:23:36 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,4 @@ void	ft_smallx(t_list **sa, t_list **sb, int ac)
 		if ((*sa)->content > (*sa)->next->content)
 			ft_sa(&(*sa));
 	}
-	// else if (ac == 1)
-	// 	write(2, "Error2\n", 8);
 }

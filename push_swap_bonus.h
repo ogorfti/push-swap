@@ -6,12 +6,12 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:54:12 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/11 17:59:19 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 19:27:54 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_BONUS
-#define PUSH_SWAP_BONUS
+#	ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include "push_swap.h"
 # include "get_next_line.h"
