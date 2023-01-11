@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:02:46 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 16:03:57 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:38:05 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_nbr_sign(char *s)
 
 	i = 0;
 	count = 0;
-	len = ft_strlen(s);
+	len = ft_strlen1(s);
 	if (len == 1)
 	{
 		if (s[i] == '+' || s[i] == '-')

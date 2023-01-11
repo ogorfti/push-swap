@@ -6,13 +6,13 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:11:24 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 15:52:53 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:37:36 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *s)
+int	ft_strlen1(char *s)
 {
 	int	i;
 
@@ -24,14 +24,14 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char *str1, char *str2)
+char	*ft_strjoin1(char *str1, char *str2)
 {
 	char	*join;
 	int		i;
 	int		j;
 
 	i = 0;
-	join = malloc(ft_strlen (str1) + ft_strlen (str2) + 3);
+	join = malloc(ft_strlen1 (str1) + ft_strlen1 (str2) + 3);
 	while (str1[i])
 	{
 		join[i] = str1[i];

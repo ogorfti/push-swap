@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:10:25 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:38:43 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ int		ft_get_score(t_list **sa, t_list **sb, int data, t_instru *count);
 int		ft_searching(t_list **sa, int search);
 void	ft_putdown(t_list **sa, int min);
 void	ft_putup(t_list **sa, int min);
-char	*ft_strjoin(char *str1, char *str2);
+char	*ft_strjoin1(char *str1, char *str2);
 char	**ft_split(char const *s, char c);
-void	*ft_calloc(size_t nitems, size_t size);
+void	*ft_calloc1(size_t nitems, size_t size);
 char	*ft_join_args(int ac, char **av);
 t_list	*ft_split_args(int ac, char **av);
-int		ft_strlen(char *s);
+int		ft_strlen1(char *s);
 int		is_sorted(t_list **sa);
 int		ft_duplicate(t_list **sa);
 int		ft_big_sign(char **s);

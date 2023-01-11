@@ -6,13 +6,13 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:52:16 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:11:43 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:37:54 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	*ft_calloc1(size_t nitems, size_t size)
 {
 	size_t	i;
 	char	*arr;

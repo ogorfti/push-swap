@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:10:26 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:11:19 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:39:20 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ char	*ft_join_args(int ac, char **av)
 	i = 1;
 	joiner = NULL;
 	if (!joiner)
-		joiner = ft_calloc(1, 1);
+		joiner = ft_calloc1(1, 1);
 	while (i < ac)
 	{
 		if (ac > 1)
 		{
-			if (ft_strlen(av[i]) == 0 || ft_at_least(av[i]) == 1)
+			if (ft_strlen1(av[i]) == 0 || ft_at_least(av[i]) == 1)
 				ft_error();
 		}
-		joiner = ft_strjoin(joiner, av[i]);
+		joiner = ft_strjoin1(joiner, av[i]);
 		i++;
 	}
 	return (joiner);
