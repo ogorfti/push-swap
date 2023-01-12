@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:14:13 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:50:12 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/12 19:19:35 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	*ft_calloc(size_t nitems, size_t size)
 	char	*arr;
 
 	i = 0;
-	if (nitems >= SIZE_MAX || size >= SIZE_MAX)
-		return (NULL);
 	arr = malloc(nitems * size);
 	if (!arr)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:25:37 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/10 18:10:57 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/12 20:20:14 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_winner	*ft_final_score(t_list **sa, t_list **sb, t_instru *count)
 	while (saver_a)
 	{
 		temp = ft_get_score(sa, sb, saver_a->content, count);
-		if (temp < score)
+		if (temp <= score)
 		{
 			score = temp;
 			winner->pos_a = get_index(sa, saver_a->content);
@@ -71,7 +71,7 @@ void	ft_push_winner(t_list **sa, t_list **sb)
 
 	struct1 = malloc(sizeof(t_instru));
 	count = malloc(sizeof(t_instru));
-	while (*sa)
+	while (count_list(sa) > 3)
 	{
 		struct1->ra = 0;
 		struct1->rb = 0;
@@ -99,6 +99,7 @@ void	ft_bigx(t_list **sa, t_list **sb)
 	}
 	ft_push_winner(sa, sb);
 	ft_smallx(sa, sb, count_list(sa));
+	ft_optimize(sa, sb);
 	while (*sb)
 		ft_pa(sa, sb);
 	min = find_min(sa);
