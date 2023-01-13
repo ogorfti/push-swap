@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:45:35 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/11 19:20:15 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/13 18:03:36 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ int	ft_dependency(char **split, t_list **sa)
 		i++;
 	}
 	if (sb || is_sorted(sa) == 0)
+	{
+		free_split (split);
+		free_list (*sa);
 		return (1);
+	}
+	free_split (split);
+	free_list (*sa);
 	return (0);
 }

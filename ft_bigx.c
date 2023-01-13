@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:25:37 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/12 20:20:14 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/13 16:19:30 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_push_winner(t_list **sa, t_list **sb)
 
 	struct1 = malloc(sizeof(t_instru));
 	count = malloc(sizeof(t_instru));
-	while (count_list(sa) > 3)
+	while (*sa)
 	{
 		struct1->ra = 0;
 		struct1->rb = 0;
@@ -82,6 +82,7 @@ void	ft_push_winner(t_list **sa, t_list **sb)
 		ft_common_instruction(sa, sb, struct1);
 		free (winner);
 	}
+	free (count);
 	free (struct1);
 }
 
@@ -98,8 +99,6 @@ void	ft_bigx(t_list **sa, t_list **sb)
 		i++;
 	}
 	ft_push_winner(sa, sb);
-	ft_smallx(sa, sb, count_list(sa));
-	ft_optimize(sa, sb);
 	while (*sb)
 		ft_pa(sa, sb);
 	min = find_min(sa);

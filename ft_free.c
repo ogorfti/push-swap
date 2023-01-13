@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 13:16:57 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/13 18:03:50 by ogorfti          ###   ########.fr       */
+/*   Created: 2023/01/13 15:52:42 by ogorfti           #+#    #+#             */
+/*   Updated: 2023/01/13 18:05:57 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	free_split(char **split)
 {
-	t_list	*sa;
-	t_list	*sb;
-	int		count;
+	int	i;
 
-	sb = 0;
-	sa = 0;
-	if (ac <= 1)
-		return (0);
-	if (ac >= 2)
+	i = 0;
+	while (split[i])
 	{
-		sa = ft_split_args(ac, av);
-		count = count_list(&sa);
-		if (count_list(&sa) <= 5)
-			ft_smallx(&sa, &sb, count);
-		else
-			ft_bigx(&sa, &sb);
+		free (split[i]);
+		i++;
 	}
-	free_list(sa);
+	free (split);
+}
+
+void	free_list(t_list *sa)
+{
+	t_list	*temp;
+
+	while (sa)
+	{
+		temp = sa;
+		sa = sa->next;
+		free (temp);
+	}
 }

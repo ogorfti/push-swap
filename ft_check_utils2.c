@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:52:16 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/12 19:19:24 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/13 18:36:17 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,18 @@ int	ft_duplicate(t_list **sa)
 	}
 	free(arr);
 	return (0);
+}
+
+int	ft_at_least(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

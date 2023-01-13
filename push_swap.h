@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:17:00 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/01/12 16:20:40 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/01/13 18:36:34 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int		ft_strlen1(char *s);
 int		is_sorted(t_list **sa);
 int		ft_duplicate(t_list **sa);
 int		ft_big_sign(char **s);
-void	ft_optimize(t_list **sa, t_list **sb);
+void	free_split(char **split);
+void	free_list(t_list *sa);
+int		ft_at_least(char *s);
 
 #endif
