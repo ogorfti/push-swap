@@ -1,3 +1,7 @@
+<p align="center">
+	<b><i>This is my push_swap project from the 42 cursus</i></b><br>
+</p>
+
 <div align="center">
   <img src="https://media.giphy.com/media/nbB1CV1fazlGo/giphy.gif" alt="animated" />
 </div>
