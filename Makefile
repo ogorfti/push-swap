@@ -6,7 +6,7 @@
 #    By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:17:09 by ogorfti           #+#    #+#              #
-#    Updated: 2023/01/13 16:38:59 by ogorfti          ###   ########.fr        #
+#    Updated: 2023/01/13 18:49:15 by ogorfti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,4 @@ fclean : clean
 bonus : $(SRCS_BONUS)
 		$(CC) $(CFLAGS) $(SRCS_BONUS) -o $(NAME_BONUS)
 
-re :
-
-.PHONY :
+re : fclean all
